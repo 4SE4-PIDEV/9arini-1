@@ -1,0 +1,35 @@
+ liste : 
+ordonnée et vous pouver trouvé des doublant les objets trouvé sont:
+ArrayList(plus rapide ) , Vector, LinkedList
+
+
+Comparable : java.lang
+méthode : compareTo()
+
+
+Comparator : java.util    y9aren bin zouz parametres
+méthode compare()
+
+
+
+Set ou ensembles : 
+n'accepte pas les doublants
+HashSet , TreeSet (trié)
+Les doublants : en fonction de Hashcode et equals ( table de Hashage )
+
+
+Map:
+HashMap(n'est pas ordonné, n'est pas sécurisé)
+TreeMap(trié)
+
+Map.Entry<k,V>: //for(Map.Entry<String,String> s : map.entrySet()){k.getKey(),V.getValue()
+k.getKey()
+V.getValue()
+V.setValue(valeur)
+entrySet(): donne ensemble des entiers
+
+
+Parcours :
+KeySet() : ensemble de clé   // for(String s : map.keyset(){
+entrySet(): ensemble de clé
+values() : valeurs
