@@ -41,7 +41,7 @@ public class Main {
         Utilisateur p = new  Utilisateur(217335,"cccc", " Ben Ali", " Ben Ali", " Ben Ali"
                 , " Ben Ali", " Ben Ali", " Ben Ali", " Ben Ali", " Ben Ali", " Ben Ali"
                 , " Ben Ali", sqlDate);
-        Utilisateur p1 = new  Utilisateur(217335,"zzz", " Ben Ali", " Ben Ali", " Ben Ali"
+        Utilisateur p1 = new  Utilisateur(217335,"zzz", "zied", " Ben Ali", " Ben Ali"
                 , " Ben Ali", " Ben Ali", " Ben Ali", " Ben Ali", " Ben Ali", " Ben Ali"
                 , " Ben Ali",  sqlDate);
                 
@@ -86,7 +86,7 @@ public class Main {
         } catch (SQLException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println(" recherche de p : " + productService.rechercherUtilisateur(" Ben Ali").toString());
+        System.out.println(" recherche de p : " + productService.rechercherUtilisateur("zied").toString());
          
     }
     
