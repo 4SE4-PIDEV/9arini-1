@@ -107,12 +107,12 @@ public class Main {
         
         try {
             for(Membre p5 : productService.getAllMembre()){
-                System.out.println(p2);
+                System.out.println(p5);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println(" recherche de p : " + productService.rechercherMembre("zied").toString());
+        System.out.println(" recherche de p : " + productService.rechercherMembre("lahbib").toString());
          
     }
     
