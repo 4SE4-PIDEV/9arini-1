@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @author bhk
  */
-public class Utilisateur {
+public abstract class Utilisateur {
     private int utilisateurID,utilisateurphone;
     private String utilisateurPdp,utilisateurNom,utilisateurPrenom,utilisateurAddress,utilisateurPays,utilisateurGenre,utilisateurAddressEmail,utilisateurMDP,utilisateurRole,utilisateurOrganisme,utilisateurFonction,utilisateurSoftskills,nomEntreprise,EntrepreneurSiteWeb,EntrepreneurUsage;
     private Date utilisateurDDN;
@@ -267,6 +267,64 @@ public class Utilisateur {
         this.EntrepreneurUsage = EntrepreneurUsage;
         this.utilisateurDDN = utilisateurDDN;
     }
+
+    public Utilisateur(int utilisateurID, int utilisateurphone, String utilisateurPdp, String utilisateurNom, String utilisateurPrenom, String utilisateurAddress, String utilisateurPays, String utilisateurGenre, String utilisateurAddressEmail, String utilisateurMDP, String utilisateurRole, String utilisateurOrganisme, String utilisateurFonction, String utilisateurSoftskills, Date utilisateurDDN) {
+        this.utilisateurID = utilisateurID;
+        this.utilisateurphone = utilisateurphone;
+        this.utilisateurPdp = utilisateurPdp;
+        this.utilisateurNom = utilisateurNom;
+        this.utilisateurPrenom = utilisateurPrenom;
+        this.utilisateurAddress = utilisateurAddress;
+        this.utilisateurPays = utilisateurPays;
+        this.utilisateurGenre = utilisateurGenre;
+        this.utilisateurAddressEmail = utilisateurAddressEmail;
+        this.utilisateurMDP = utilisateurMDP;
+        this.utilisateurRole = utilisateurRole;
+        this.utilisateurOrganisme = utilisateurOrganisme;
+        this.utilisateurFonction = utilisateurFonction;
+        this.utilisateurSoftskills = utilisateurSoftskills;
+        this.utilisateurDDN = utilisateurDDN;
+    }
+
+   
+
+    public Utilisateur(int utilisateurID, int utilisateurphone, String utilisateurPdp, String utilisateurNom, String utilisateurPrenom, String utilisateurAddress, String utilisateurPays, String utilisateurGenre, String utilisateurAddressEmail, String utilisateurMDP, String utilisateurRole, String utilisateurOrganisme, String utilisateurFonction, String nomEntreprise, String EntrepreneurSiteWeb, String EntrepreneurUsage, Date utilisateurDDN) {
+        this.utilisateurID = utilisateurID;
+        this.utilisateurphone = utilisateurphone;
+        this.utilisateurPdp = utilisateurPdp;
+        this.utilisateurNom = utilisateurNom;
+        this.utilisateurPrenom = utilisateurPrenom;
+        this.utilisateurAddress = utilisateurAddress;
+        this.utilisateurPays = utilisateurPays;
+        this.utilisateurGenre = utilisateurGenre;
+        this.utilisateurAddressEmail = utilisateurAddressEmail;
+        this.utilisateurMDP = utilisateurMDP;
+        this.utilisateurRole = utilisateurRole;
+        this.utilisateurOrganisme = utilisateurOrganisme;
+        this.utilisateurFonction = utilisateurFonction;
+        this.nomEntreprise = nomEntreprise;
+        this.EntrepreneurSiteWeb = EntrepreneurSiteWeb;
+        this.EntrepreneurUsage = EntrepreneurUsage;
+        this.utilisateurDDN = utilisateurDDN;
+    }
+
+    public Utilisateur(int utilisateurID, int utilisateurphone, String utilisateurPdp, String utilisateurNom, String utilisateurPrenom, String utilisateurAddress, String utilisateurPays, String utilisateurGenre, String utilisateurAddressEmail, String utilisateurMDP, String utilisateurRole, String utilisateurOrganisme, String utilisateurFonction, Date utilisateurDDN) {
+        this.utilisateurID = utilisateurID;
+        this.utilisateurphone = utilisateurphone;
+        this.utilisateurPdp = utilisateurPdp;
+        this.utilisateurNom = utilisateurNom;
+        this.utilisateurPrenom = utilisateurPrenom;
+        this.utilisateurAddress = utilisateurAddress;
+        this.utilisateurPays = utilisateurPays;
+        this.utilisateurGenre = utilisateurGenre;
+        this.utilisateurAddressEmail = utilisateurAddressEmail;
+        this.utilisateurMDP = utilisateurMDP;
+        this.utilisateurRole = utilisateurRole;
+        this.utilisateurOrganisme = utilisateurOrganisme;
+        this.utilisateurFonction = utilisateurFonction;
+        this.utilisateurDDN = utilisateurDDN;
+    }
+  
     
     @Override
     public String toString() {

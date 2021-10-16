@@ -19,7 +19,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import workshodb.entities.Membre;
 import workshodb.entities.Utilisateur;
-import workshopdb.services.UtilisateurService;
+import workshopdb.services.MembreService;
 public class Main {
 
     /**
@@ -28,8 +28,8 @@ public class Main {
      */
     public static void main(String[] args) throws ParseException, NoSuchAlgorithmException, SQLException {
         // TODO code application logic here
-        UtilisateurService productService = new UtilisateurService();
-        List<Utilisateur> cherchep = new ArrayList<>();
+        MembreService productService = new MembreService();
+        List<Membre> cherchep = new ArrayList<>();
             
         Date date =new Date( 100, 6,10);
     
@@ -38,16 +38,29 @@ public class Main {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         final String stringDate= dateFormat.format(date);
         final java.sql.Date sqlDate=  java.sql.Date.valueOf(stringDate);
-        Utilisateur p = new  Utilisateur(217335,"cccc", " Ben Ali", " Ben Ali", " Ben Ali"
-                , " Ben Ali", " Ben Ali", " Ben Ali", " Ben Ali", " Ben Ali", " Ben Ali"
-                , " Ben Ali", sqlDate);
-        Utilisateur p1 = new  Utilisateur(217335,"zzz", "zied", " Ben Ali", " Ben Ali"
-                , " Ben Ali", " Ben Ali", " Ben Ali", " Ben Ali", " Ben Ali", " Ben Ali"
-                , " Ben Ali",  sqlDate);
+        Membre p = new  Membre(21733584, "cccc","lahbib", "zied", "medina"
+                , "tunis", "homme", "lahbibmedzied@gmail.com", "01234", "membre"
+                , "Esprit","etudiant", sqlDate);
+        Membre p1 = new  Membre(21733584, "cccc","lahbib", "zied", "medina"
+                , "tunis", "homme", "lahbibmedzied@gmail.com", "01234", "membre"
+                , "Esprit","etudiant", sqlDate);
+        Membre p2 = new  Membre(21733584, "cccc","mohamed", "zied", "medina"
+                , "tunis", "homme", "lahbibmedzied@gmail.com", "01234", "membre"
+                , "Esprit","etudiant", sqlDate);
+        Membre p3 = new  Membre(21733584, "cccc","lahbib", "zied", "medina"
+                , "tunis", "homme", "lahbibmedzied@gmail.com", "01234", "membre"
+                , "Esprit","etudiant", sqlDate);
+        Membre p4 = new  Membre(21733584, "cccc","lahbib", "zied", "medina"
+                , "tunis", "homme", "lahbibmedzied@gmail.com", "01234", "membre"
+                , "Esprit","etudiant", sqlDate);
                 
         try {
             //productService.ajouterPersonne(p);
-            productService.ajouterUtilisateur(p);
+            productService.ajouterMembre(p);
+            productService.ajouterMembre(p1);
+            productService.ajouterMembre(p2);
+            productService.ajouterMembre(p3);
+            productService.ajouterMembre(p4);
             System.out.println("personne ajouté");
           
             
@@ -58,7 +71,7 @@ public class Main {
         try {
             //productService.ajouterPersonne(p);
             
-            productService.modifierUtilisateur(p1, 54);
+            productService.modifierMembre(p2, 66);
             System.out.println("personne  modifier");
             
           
@@ -69,7 +82,7 @@ public class Main {
         }
         try {
           
-            productService.supprimerUtilisateur(53);
+            productService.supprimerMembre(67);
             System.out.println("personne  supprimé");
           
           
@@ -80,13 +93,13 @@ public class Main {
         }
         
         try {
-            for(Utilisateur p2 : productService.getAllPersonnes()){
+            for(Membre p5 : productService.getAllMembre()){
                 System.out.println(p2);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println(" recherche de p : " + productService.rechercherUtilisateur("zied").toString());
+        System.out.println(" recherche de p : " + productService.rechercherMembre("zied").toString());
          
     }
     

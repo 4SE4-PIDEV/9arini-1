@@ -5,6 +5,8 @@
  */
 package workshopdb.services;
 
+
+import Iservice.IserviceAdmin;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
@@ -16,6 +18,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import workshodb.entities.Admin;
 import workshodb.entities.Utilisateur;
 import workshopdb.utils.MyDB;
 
@@ -23,15 +26,15 @@ import workshopdb.utils.MyDB;
  *
  * @author bhk
  */
-public class UtilisateurService {
+public class AdminService implements IserviceAdmin{
 
     Connection connexion;
 
-    public UtilisateurService() {
+    public AdminService()  {
         connexion = MyDB.getInstance().getConnection();
     }
-
-    public void ajouterUtilisateur(Utilisateur p) throws SQLException, NoSuchAlgorithmException {
+    @Override
+    public void ajouterAdmin(Admin p) throws SQLException, NoSuchAlgorithmException {
         String req = "INSERT INTO `utilisateur` (`utilisateurPdp`,`utilisateurphone`, `utilisateurNom`,`utilisateurPrenom`,`utilisateurAdresse`,"
                 + "`utilisateurPays`,`utilisateurDDN`,`utilisateurGenre`,`utilisateurAdresseEmail`,"
                 + "`utilisateurMDP`,`utilisateurRole`,`utilisateurOrganisme`,`utilisateurFonction`,"
@@ -44,7 +47,8 @@ public class UtilisateurService {
         Statement stm = connexion.createStatement();
         stm.executeUpdate(req);
     }
-     public void modifierUtilisateur(Utilisateur p,int id) throws SQLException, NoSuchAlgorithmException {
+    @Override
+     public void modifierAdmin(Admin p,int id) throws SQLException, NoSuchAlgorithmException {
         String req = "UPDATE Utilisateur SET "
                 + " utilisateurPdp='"+p.getUtilisateurPdp()+"'"
                 + ", utilisateurphone='"+p.getUtilisateurphone()+"'"
@@ -66,7 +70,8 @@ public class UtilisateurService {
         Statement stm = connexion.createStatement();
         stm.executeUpdate(req);
     }
-     public void supprimerUtilisateur(int id) throws SQLException {
+     @Override
+     public void supprimerAdmin(int id) throws SQLException {
 
         String req = "DELETE FROM utilisateur WHERE utilisateurID ="+id+"";
      
@@ -101,16 +106,17 @@ public class UtilisateurService {
         ps.executeUpdate();
     }
     */
+     @Override
+    public List<Admin> getAllAdmin() throws SQLException {
 
-    public List<Utilisateur> getAllPersonnes() throws SQLException {
-
-        List<Utilisateur> presonnes = new ArrayList<>();
+        List<Admin> presonnes = new ArrayList<>();
         String req = "select * from utilisateur";
         Statement stm = connexion.createStatement();
         ResultSet rst = stm.executeQuery(req);
 
         while (rst.next()) {
-            Utilisateur p = new Utilisateur(rst.getInt("utilisateurID")
+            Admin p = new Admin(rst.getInt("utilisateurID")
+                    , rst.getInt("utilisateurphone")
                     , rst.getString("utilisateurPdp")
                     , rst.getString("utilisateurNom")
                     , rst.getString("utilisateurPrenom")
@@ -131,7 +137,7 @@ public class UtilisateurService {
         }
         return presonnes;
     }
-    
+    @Override
     public String hashmdp (String mdp) throws NoSuchAlgorithmException{
         MessageDigest md = MessageDigest.getInstance("SHA-256");
         md.update(mdp.getBytes());
@@ -157,16 +163,16 @@ public class UtilisateurService {
     
        return hexString.toString();
     }
-    
-    public List<Utilisateur> rechercherUtilisateur(String nom) throws SQLException {
-        List<Utilisateur> presonnes = new ArrayList<>();
-        List<Utilisateur> cherchep = new ArrayList<>();
+    @Override
+    public List<Admin> rechercherAdmin(String nom) throws SQLException {
+        List<Admin> presonnes = new ArrayList<>();
+        List<Admin> cherchep = new ArrayList<>();
         String req = "select * from utilisateur";
         Statement stm = connexion.createStatement();
         ResultSet rst = stm.executeQuery(req);
         //Utilisateur p = null;
         while (rst.next()) {
-            Utilisateur p = new Utilisateur(
+            Admin p = new Admin(
                       rst.getInt("utilisateurID")
                     , rst.getInt("utilisateurphone")
                     , rst.getString("utilisateurPdp")
@@ -187,7 +193,7 @@ public class UtilisateurService {
                     , rst.getDate("utilisateurDDN"));
             presonnes.add(p);
         }
-        for (Utilisateur p2 : presonnes) {
+        for (Admin p2 : presonnes) {
             if (p2.getUtilisateurNom().equals(nom)) {
                 cherchep.add(p2);
             }
