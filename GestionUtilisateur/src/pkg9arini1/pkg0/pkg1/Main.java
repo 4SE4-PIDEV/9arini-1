@@ -17,8 +17,14 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import workshodb.entities.Admin;
+import workshodb.entities.Entrepreneur;
+import workshodb.entities.Formateur;
 import workshodb.entities.Membre;
 import workshodb.entities.Utilisateur;
+import workshopdb.services.AdminService;
+import workshopdb.services.EntrepreneurService;
+import workshopdb.services.FormateurService;
 import workshopdb.services.MembreService;
 public class Main {
 
@@ -29,7 +35,14 @@ public class Main {
     public static void main(String[] args) throws ParseException, NoSuchAlgorithmException, SQLException {
         // TODO code application logic here
         MembreService productService = new MembreService();
+        AdminService productService1 = new AdminService();
+        FormateurService productService2 = new FormateurService();
+        EntrepreneurService productService3 = new EntrepreneurService();
         List<Membre> cherchep = new ArrayList<>();
+        List<Admin> cherchep1 = new ArrayList<>();
+        List<Formateur> cherchep2 = new ArrayList<>();
+        List<Entrepreneur> cherchep3 = new ArrayList<>();
+                
             
         Date date =new Date( 100, 6,10);
     
@@ -41,15 +54,15 @@ public class Main {
         Membre p = new  Membre(21733584, "cccc","lahbib", "zied", "medina"
                 , "tunis", "homme", "lahbibmedzied@gmail.com", "01234", "membre"
                 , "Esprit","etudiant", sqlDate);
-        Membre p1 = new  Membre(21733584, "cccc","lahbib", "zied", "medina"
-                , "tunis", "homme", "lahbibmedzied@gmail.com", "01234", "membre"
+        Admin p1 = new  Admin(21733584, "cccc","lahbib", "zied", "medina"
+                , "tunis", "homme", "lahbibmedzied@gmail.com", "01234", "Admin"
                 , "Esprit","etudiant", sqlDate);
-        Membre p2 = new  Membre(21733584, "cccc","mohamed", "zied", "medina"
-                , "tunis", "homme", "lahbibmedzied@gmail.com", "01234", "membre"
-                , "Esprit","etudiant", sqlDate);
-        Membre p3 = new  Membre(21733584, "cccc","lahbib", "zied", "medina"
-                , "tunis", "homme", "lahbibmedzied@gmail.com", "01234", "membre"
-                , "Esprit","etudiant", sqlDate);
+        Entrepreneur p2 = new  Entrepreneur(21733584, "cccc","mohamed", "zied", "medina"
+                , "tunis", "homme", "lahbibmedzied@gmail.com", "01234", "Entrepreneur"
+                , "Esprit","etudiant","ziedstore","www.ziedstore.com","electronique", sqlDate);
+        Formateur p3 = new  Formateur(21733584, "cccc","lahbib", "zied", "medina"
+                , "tunis", "homme", "lahbibmedzied@gmail.com", "01234", "Formateur"
+                , "Esprit","etudiant","sociable", sqlDate);
         Membre p4 = new  Membre(21733584, "cccc","lahbib", "zied", "medina"
                 , "tunis", "homme", "lahbibmedzied@gmail.com", "01234", "membre"
                 , "Esprit","etudiant", sqlDate);
@@ -57,9 +70,9 @@ public class Main {
         try {
             //productService.ajouterPersonne(p);
             productService.ajouterMembre(p);
-            productService.ajouterMembre(p1);
-            productService.ajouterMembre(p2);
-            productService.ajouterMembre(p3);
+            productService1.ajouterAdmin(p1);
+            productService2.ajouterFormateur(p3);
+            productService3.ajouterEntrepreneur(p2);
             productService.ajouterMembre(p4);
             System.out.println("personne ajouté");
           
@@ -71,7 +84,7 @@ public class Main {
         try {
             //productService.ajouterPersonne(p);
             
-            productService.modifierMembre(p2, 66);
+            productService1.modifierAdmin(p1, 66);
             System.out.println("personne  modifier");
             
           
